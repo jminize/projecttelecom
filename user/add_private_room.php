@@ -84,7 +84,7 @@ include "./check_status_login.php";
                               <div class="row">
                                   <div class="col-12">
                                       <div class="form-group">
-                                      <span class="title-room">หมายเลขห้อง<span class="star">*</span></span> 
+                                      <span class="title-room">ชื่อห้อง<span class="star">*</span></span> 
                                           <input type="text" class="form-control" name="location_num"/>
                                       </div>
                                   </div>
@@ -141,7 +141,7 @@ include "./check_status_login.php";
                               <div class="form-group">
                                   <div class="row">
                                       <div class="col-12">
-                                        <span class="room-info">หมายเลขห้อง : <label id="location_num" class="room-info"></label></span>
+                                        <span class="room-info">ชื่อห้อง : <label id="location_num" class="room-info"></label></span>
                                       </div>
                                   </div>
                               </div>
@@ -239,7 +239,7 @@ include "./check_status_login.php";
         },
         messages: {
           location_num: {
-                required :"กรอกหมายเลขห้อง"
+                required :"กรอกชื่อห้อง"
             },
             b_eq_id: {
                 required :"โปรดระบุอาคาร"

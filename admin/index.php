@@ -1,7 +1,51 @@
 <?php
+include '../connect.php';
 session_start();
 include './check_status_login.php';
 
+//เบอร์พนักงานที่ใช้งาน
+$sql=$mysqli->query("SELECT count(DISTINCT tel) as usedtel
+                    FROM emp_tel
+                    ");
+$result=$sql->num_rows;
+while($row=$sql->fetch_assoc()){
+    $usedtel_emp=$row['usedtel'];
+}
+//เบอร์หอพักที่ใช้งาน
+$sql=$mysqli->query("SELECT count(DISTINCT tel) as usedtel
+                    FROM hotel_tel
+                    ");
+$result=$sql->num_rows;
+while($row=$sql->fetch_assoc()){
+    $usedtel_hotel=$row['usedtel'];
+}
+//เบอร์ประจำชั้นที่ใช้งาน
+$sql=$mysqli->query("SELECT count(DISTINCT tel) as usedtel
+                    FROM private_tel
+                    ");
+$result=$sql->num_rows;
+while($row=$sql->fetch_assoc()){
+    $usedtel_private=$row['usedtel'];
+}
+
+//เบอร์ทั้งหมด
+$sql=$mysqli->query("SELECT count(DISTINCT tel) as alltel
+                    FROM terminal
+                    WHERE eq_id='AB001F01A001' AND t_id LIKE 'pt%'
+                    ");
+$result=$sql->num_rows;
+while($row=$sql->fetch_assoc()){
+    $alltel=$row['alltel'];
+}
+//พนักงานทั้งหมด
+$sql=$mysqli->query("SELECT count(DISTINCT emp_id) as allemp
+                    FROM employee
+                    ");
+$result=$sql->num_rows;
+while($row=$sql->fetch_assoc()){
+    $allemp=$row['allemp'];
+}
+//เบอร์พนักงานที่ใช้งาน
 $page='indexadmin';
 ?>
 <!DOCTYPE html>
@@ -62,9 +106,97 @@ $page='indexadmin';
           <div class="container-fluid">
             <div class="row justify-content-left">
               <div class="col-12">
-                  <h3>ยินดีต้อนรับเข้าสู่ระบบวงจรข่ายสายโทรศัพท์ภายในสถาบันวิชาการทีโอที</h3>
+                  <h3>ยินดีต้อนรับผู้ดูเเลระบบวงจรข่ายสายโทรศัพท์ภายในสถาบันวิชาการทีโอที</h3>
               </div>
             </div>
+            <br>
+            <div class="row">
+        <!-- card -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  </div>
+                  <p class="card-category">เบอร์โทรพนักงาน</p>
+                  <h3 class="card-title"><?=$usedtel_emp;?>/<?=$alltel;?><br>
+                    <small>เบอร์</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
+                    &nbsp;&nbsp;<a href="./SearchTel.php">ค้นหาเบอร์</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- end card -->
+        <!-- card -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  </div>
+                  <p class="card-category">พนักงานทั้งหมด</p>
+                  <h3 class="card-title"><?=$allemp;?><br>
+                    <small>คน</small>
+                  </h3>  
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
+                    &nbsp;&nbsp;<a href="../structure.php">ค้นหาพนักงาน</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- end card -->   
+        <!-- card -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                  <i class="fa fa-building" aria-hidden="true"></i>
+                  </div>
+                  <p class="card-category">เบอร์โทรหอพัก</p>
+                  <h3 class="card-title"><?=$usedtel_hotel;?>/<?=$alltel;?><br>
+                    <small>เบอร์</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
+                    &nbsp;&nbsp;<a href="./SearchTel_hotel.php">ค้นหาเบอร์</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- end card -->
+        <!-- card -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                  <i class="fa fa-university" aria-hidden="true"></i>
+                  </div>
+                  <p class="card-category">เบอร์ประจำชั้น</p>
+                  <h3 class="card-title"><?=$usedtel_private;?>/<?=$alltel;?><br>
+                    <small>เบอร์</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
+                    &nbsp;&nbsp;<a href="./SearchTel_private.php">ค้นหาเบอร์</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- end card -->  
+          </div>
+          
           </div>
         </div>
         <!--footer-->

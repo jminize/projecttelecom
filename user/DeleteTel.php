@@ -104,6 +104,7 @@ include "./check_status_login.php";
                                                     LEFT JOIN route_tel
                                                     ON emp_tel.route=route_tel.route
                                                     WHERE emp_tel.type_phone='ipphone' or memo!=''
+                                                    ORDER BY center.center_id ASC
                                                     ");
                                 while($row = $sql->fetch_assoc())
                                 {
@@ -279,7 +280,9 @@ include "./check_status_login.php";
       
 
       $(document).ready(function() {
-        $('#search').DataTable();
+        $('#search').DataTable({
+          "bSort":false
+        });
       } );
 
     </script>

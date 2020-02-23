@@ -97,7 +97,7 @@ if(isset($type)){
 <div class="form-group">
   <div class="row">
     <div class="col-md-4">
-      รายละเอียดสถานที่ใหม่<label class="star">*</label>
+      รายละเอียดสถานที่นั่งใหม่<label class="star">*</label>
       <input type="text" name="location_detail" class="form-control"/>
     </div>
   </div>

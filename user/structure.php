@@ -3,7 +3,6 @@ session_start();
 
 include("../connect.php"); 
 
-include './check_status_login.php';
 $page='structure';
 ?>
 
@@ -25,12 +24,7 @@ $page='structure';
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
       name="viewport"
     />
-  <!--     Fonts and icons     -->
-  <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
-    />
+  <!--     icons     -->
     <link rel="stylesheet" href="./assets/vendor/font-awesome/css/font-awesome.css">
     <!-- CSS Files -->
   <link href="assets/css/material-dashboard.css" rel="stylesheet" />
@@ -56,7 +50,7 @@ $page='structure';
     <div class="wrapper ">
       <!--sidenav-->
       <?php
-      include "header.php";
+        include "./header.php";
       ?>
       <!--sidenav-->
       <div class="main-panel">
@@ -105,13 +99,18 @@ $page='structure';
                                     <tr>
                                     <th>รหัสพนักงาน</th>
                                     <th>ชื่อ-สกุล</th>
-                                    <th>ส่วนงานที่สังกัด</th>                               
+                                    <th>ส่วนงานที่สังกัด</th>
                                     <th>ชื่อย่อส่วนงาน</th>
                                     </tr>
                                 </thead>   
                                 <tbody>
                                 <?php 
-                                $sql=$mysqli->query("SELECT * FROM employee INNER JOIN center ON employee.center_id = center.center_id WHERE center.div_code LIKE '%ผสก%' ");
+                                $sql=$mysqli->query("SELECT employee.emp_id,employee.emp_name,center.center_name,center.div_code
+                                                  FROM employee 
+                                                  INNER JOIN center 
+                                                  ON employee.center_id = center.center_id 
+                                                  WHERE center.div_code LIKE '%ผสก%' 
+                                                  ORDER BY center.center_id DESC");
                                 while($row = $sql->fetch_assoc())
                                 {
                                 ?>
@@ -139,7 +138,13 @@ $page='structure';
                                 </thead>   
                                 <tbody>
                                 <?php 
-                                $sql=$mysqli->query("SELECT * FROM employee INNER JOIN center ON employee.center_id = center.center_id WHERE center.div_code LIKE '%จสก%' ");
+                                $sql=$mysqli->query("SELECT employee.emp_id,employee.emp_name,center.center_name,center.div_code 
+                                                    FROM employee 
+                                                    INNER JOIN center 
+                                                    ON employee.center_id = center.center_id 
+                                                    WHERE center.div_code LIKE '%จสก%' 
+                                                    ORDER BY center.center_id DESC
+                                                    ");
                                 while($row = $sql->fetch_assoc())
                                 {
                                 ?>
@@ -168,7 +173,13 @@ $page='structure';
                                 </thead>   
                                 <tbody>
                                 <?php 
-                                $sql=$mysqli->query("SELECT * FROM employee INNER JOIN center ON employee.center_id = center.center_id WHERE center.div_code LIKE '%สสก%' ");
+                                $sql=$mysqli->query("SELECT employee.emp_id,employee.emp_name,center.center_name,center.div_code 
+                                                    FROM employee 
+                                                    INNER JOIN center 
+                                                    ON employee.center_id = center.center_id 
+                                                    WHERE center.div_code LIKE '%สสก%' 
+                                                    ORDER BY center.center_id DESC
+                                                    ");
                                 while($row = $sql->fetch_assoc())
                                 {
                                 ?>
@@ -197,7 +208,13 @@ $page='structure';
                                 </thead>   
                                 <tbody>
                                 <?php 
-                                $sql=$mysqli->query("SELECT * FROM employee INNER JOIN center ON employee.center_id = center.center_id WHERE center.div_code LIKE '%ทสก%' ");
+                                $sql=$mysqli->query("SELECT employee.emp_id,employee.emp_name,center.center_name,center.div_code
+                                                    FROM employee 
+                                                    INNER JOIN center 
+                                                    ON employee.center_id = center.center_id 
+                                                    WHERE center.div_code LIKE '%ทสก%' 
+                                                    ORDER BY center.center_id DESC
+                                                    ");
                                 while($row = $sql->fetch_assoc())
                                 {
                                 ?>
@@ -227,7 +244,12 @@ $page='structure';
                                 </thead>   
                                 <tbody>
                                 <?php 
-                                $sql=$mysqli->query("SELECT * FROM employee INNER JOIN center ON employee.center_id = center.center_id WHERE center.div_code LIKE '%บสก%' ");
+                                $sql=$mysqli->query("SELECT employee.emp_id,employee.emp_name,center.center_name,center.div_code
+                                                    FROM employee 
+                                                    INNER JOIN center 
+                                                    ON employee.center_id = center.center_id 
+                                                    WHERE center.div_code LIKE '%บสก%' 
+                                                    ORDER BY center.center_id DESC");
                                 while($row = $sql->fetch_assoc())
                                 {
                                 ?>
@@ -302,7 +324,9 @@ $page='structure';
 
 <script type="text/javascript">
    $(document).ready(function() {
-    $('.table').DataTable();    
+    $('.table').DataTable({
+      "bSort":false
+    });    
     
 } );
 </script>

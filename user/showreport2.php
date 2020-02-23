@@ -118,12 +118,20 @@ for($i=0;$i<$result;$i++){
                                 <tbody>
                                 <?php
                                 if($type=='ทั้งหมด'){
-                                  $sql=$mysqli->query("SELECT * FROM report INNER JOIN employee
-                                ON report.emp_id = employee.emp_id WHERE report.re_date BETWEEN '$Start_date' AND '$End_date' ORDER BY re_date ASC");
+                                  $sql=$mysqli->query("SELECT * 
+                                                      FROM report 
+                                                      INNER JOIN employee
+                                                      ON report.emp_id = employee.emp_id 
+                                                      WHERE report.re_date BETWEEN '$Start_date' AND '$End_date' 
+                                                      ORDER BY re_date ASC");
                                 }
                                 else{
-                                  $sql=$mysqli->query("SELECT * FROM report INNER JOIN employee
-                                  ON report.emp_id = employee.emp_id WHERE report.re_date BETWEEN '$Start_date' AND '$End_date' AND (report.re_type= '$type') ORDER BY re_date ASC");
+                                  $sql=$mysqli->query("SELECT * 
+                                                      FROM report 
+                                                      INNER JOIN employee
+                                                      ON report.emp_id = employee.emp_id 
+                                                      WHERE report.re_date BETWEEN '$Start_date' AND '$End_date' AND (report.re_type= '$type') 
+                                                      ORDER BY re_date ASC");
                                 }
                                  while($row = $sql->fetch_assoc())
                                 {
@@ -209,7 +217,9 @@ for($i=0;$i<$result;$i++){
       });
       //-------------End validate--------------
       $(document).ready(function() {
-        $('#search').DataTable();
+        $('#search').DataTable({
+          "bSort"
+        });
       } );
     </script>
 

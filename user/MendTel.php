@@ -119,6 +119,7 @@ for($i=0;$i<$result;$i++){
                                                     LEFT JOIN route_tel
                                                     ON emp_tel.route=route_tel.route
                                                     WHERE emp_tel.type_phone='ipphone' or memo!=''
+                                                    ORDER BY center.center_id ASC
                                                     ");
                                 while($row = $sql->fetch_assoc())
                                 {
@@ -212,7 +213,7 @@ for($i=0;$i<$result;$i++){
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <script src="assets/js/material-dashboard.js" type="text/javascript"></script>
 
   <script src="./assets/js/bootstrap-select.js"></script>
 
@@ -225,7 +226,9 @@ for($i=0;$i<$result;$i++){
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#search').DataTable();
+        $('#search').DataTable({
+          "bSort":false
+        });
       } );
 
       showlocation=(location,memo)=>{

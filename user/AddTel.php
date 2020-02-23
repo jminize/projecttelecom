@@ -110,7 +110,7 @@ include "./check_status_login.php";
                                                       FROM employee
                                                       INNER JOIN center
                                                       ON employee.center_id=center.center_id
-                                                      ORDER BY emp_id ASC
+                                                      ORDER BY center.center_id ASC
                                                       ");
                                   while($row = $sql->fetch_assoc())
                                   {
@@ -204,7 +204,7 @@ include "./check_status_login.php";
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <script src="assets/js/material-dashboard.js" type="text/javascript"></script>
 
    <!--validate-->
    <script src="./assets/vendor/validate/jquery.validate.js"></script>
@@ -218,7 +218,9 @@ include "./check_status_login.php";
 
     <script type="text/javascript">
     $(document).ready(function() {
-            $('#emp_all').DataTable();
+            $('#emp_all').DataTable({
+              "bSort":false
+            });
         } );  
 
     selfloor_hotel=(b_eq_id)=>{

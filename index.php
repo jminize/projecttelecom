@@ -2,23 +2,7 @@
 session_start();
 
 include("connect.php"); 
-
-if(isset($_SESSION['user_status'])){
-  if($_SESSION['user_status']=='1'){
-    ?>
-  <script>
-  window.location = './admin/index.php';
-  </script>
-  <?php
-  }
-  elseif($_SESSION['user_status']=='2' || $_SESSION['user_status']=='3'){
-    ?>
-  <script>
-  window.location = './user/index.php';
-  </script>
-<?php
-  }
-}
+include './check_status_login.php';
 //เบอร์ที่ใช้งาน
 $sql=$mysqli->query("SELECT count(DISTINCT tel) as usedtel
                     FROM emp_tel
@@ -101,7 +85,7 @@ $page='index';
             <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>

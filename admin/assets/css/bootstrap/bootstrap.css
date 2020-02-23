@@ -80,18 +80,6 @@ hr
     box-sizing: content-box;
     height: 0;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
-{
-    margin-top: 0;
-    margin-bottom: .5rem;
-}
-
 p
 {
     margin-top: 0;
@@ -183,19 +171,7 @@ sup
     top: -.5em;
 }
 
-a
-{
-    text-decoration: none;
 
-    color: #007bff;
-    background-color: transparent;
-}
-a:hover
-{
-    text-decoration: underline; 
-
-    color: #0056b3;
-}
 
 a:not([href]):not([tabindex])
 {
@@ -445,61 +421,6 @@ template
 [hidden]
 {
     display: none !important;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6
-{
-    font-weight: 500;
-    line-height: 1.2; 
-
-    margin-bottom: .5rem;
-}
-
-h1,
-.h1
-{
-    font-size: 2.5rem;
-}
-
-h2,
-.h2
-{
-    font-size: 2rem;
-}
-
-h3,
-.h3
-{
-    font-size: 1.75rem;
-}
-
-h4,
-.h4
-{
-    font-size: 1.5rem;
-}
-
-h5,
-.h5
-{
-    font-size: 1.25rem;
-}
-
-h6,
-.h6
-{
-    font-size: 1rem;
 }
 
 .lead
@@ -11953,17 +11874,10 @@ a.text-dark:focus
     {
         page-break-inside: avoid;
     }
-    p,
-    h2,
-    h3
+    p
     {
         orphans: 3;
         widows: 3;
-    }
-    h2,
-    h3
-    {
-        page-break-after: avoid;
     }
     @page
     {

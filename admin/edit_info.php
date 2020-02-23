@@ -180,6 +180,7 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
                                   <div class="col-12 ">
                                       <div class="row justify-content-center">
                                           <div class="form-group">
+                                              <a href="./edit_emp_info.php" class="btn btn-facebook">ย้อนกลับ</a>
                                               <button type="button" class="btn btn-facebook" id="nextblock1" >ถัดไป</button>
                                           </div>
                                       </div>

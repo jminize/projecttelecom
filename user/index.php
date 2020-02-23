@@ -58,8 +58,7 @@ $result=$sql->num_rows;
 while($row=$sql->fetch_assoc()){
     $allemp=$row['allemp'];
 }
-?>
-<?php
+
     $page='indexuser';
 ?>
 <!DOCTYPE html>
@@ -102,14 +101,14 @@ while($row=$sql->fetch_assoc()){
       <div class="content">
       <div class="container-fluid">
         <div class="row">
-        <h3>ยินดีต้อนรับเข้าสู่ระบบวงจรข่ายสายโทรศัพท์ภายในสถาบันวิชาการทีโอที</h3>
+        <h3>ยินดีต้อนรับผู้ใช้งานระบบวงจรข่ายสายโทรศัพท์ภายในสถาบันวิชาการทีโอที</h3>
         </div>
         <br>
       <div class="row">
         <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
@@ -142,7 +141,7 @@ while($row=$sql->fetch_assoc()){
                 <div class="card-footer">
                   <div class="stats">
                   <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;<a href="./structure.php">ค้นหาพนักงาน</a>
+                    &nbsp;&nbsp;<a href="../structure.php">ค้นหาพนักงาน</a>
                   </div>
                 </div>
               </div>
@@ -151,7 +150,7 @@ while($row=$sql->fetch_assoc()){
         <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-building" aria-hidden="true"></i>
                   </div>
@@ -172,7 +171,7 @@ while($row=$sql->fetch_assoc()){
         <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-university" aria-hidden="true"></i>
                   </div>
