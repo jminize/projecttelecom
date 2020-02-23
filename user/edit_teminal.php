@@ -29,8 +29,7 @@ include "./check_status_login.php";
     TOT
     </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <!--     icons     -->
   <link rel="stylesheet" href="./assets/vendor/font-awesome/css/font-awesome.css">
   <!-- CSS Files -->
   <link href="assets/css/material-dashboard.css" rel="stylesheet" />

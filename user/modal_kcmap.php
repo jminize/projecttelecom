@@ -7,6 +7,7 @@ if(isset($last_eq_id)){
                     FROM kc_pic
                     WHERE eq_id='$last_eq_id'");
   $direc=substr($last_eq_id,0,5);
+  $floor=substr($last_eq_id,6,-4);
   $result=$sql->num_rows;
   if($result>0){
     while($row=$sql->fetch_assoc()){
@@ -55,12 +56,11 @@ if(isset($last_eq_id)){
       <div class="modal-body">
         <div class="form-group">
           <label>KC Map : <?=$location;?></label>
-          <?=$_SESSION['type'];?>
           <!-- <img src="./pic/kc/AB002/568.jpg" style="width:100%;"> -->
           <?php
           if($result>0){
           ?>
-            <img src="./pic/kc/<?=$direc;?>/<?=$pic;?>" style="width:100%;">
+            <img src="./pic/kc/<?=$direc;?>/<?=$floor;?>/<?=$pic;?>" style="width:100%;">
           <?php
           }else{
             echo "<br>"."ไม่พบรูปภาพ KC";
