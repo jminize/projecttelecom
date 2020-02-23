@@ -44,7 +44,9 @@ td a {
 form.cmxform label.error,
 label.error,
 #select-error,
-.select-error2{
+.select-error2,
+#select-center_id-error,
+#select-position_name-error{
   color: red;
   font-style: italic;
 }

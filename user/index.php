@@ -114,7 +114,7 @@ while($row=$sql->fetch_assoc()){
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">เบอร์โทรพนักงาน</p>
-                  <h3 class="card-title"><?=$usedtel_emp;?>/<?=$alltel;?>
+                  <h3 class="card-title"><?=$usedtel_emp;?>/<?=$alltel;?><br>
                     <small>เบอร์</small>
                   </h3>
                 </div>
@@ -156,7 +156,7 @@ while($row=$sql->fetch_assoc()){
                   <i class="fa fa-building" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">เบอร์โทรหอพัก</p>
-                  <h3 class="card-title"><?=$usedtel_hotel;?>/<?=$alltel;?>
+                  <h3 class="card-title"><?=$usedtel_hotel;?>/<?=$alltel;?><br>
                     <small>เบอร์</small>
                   </h3>
                 </div>
@@ -177,7 +177,7 @@ while($row=$sql->fetch_assoc()){
                   <i class="fa fa-university" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">เบอร์ประจำชั้น</p>
-                  <h3 class="card-title"><?=$usedtel_private;?>/<?=$alltel;?>
+                  <h3 class="card-title"><?=$usedtel_private;?>/<?=$alltel;?><br>
                     <small>เบอร์</small>
                   </h3>
                 </div>

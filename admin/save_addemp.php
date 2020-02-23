@@ -7,6 +7,9 @@ $emp_name=$_POST['emp_name'];
 $email=$_POST['email'];
 $center_id=$_POST['center_id'];
 $location=$_POST['location'];
+$position_code=$_POST['position_name'].$_POST['position_num'];
+
+
 //บันทึกข้อมูลลงใน employee
 $insert="INSERT INTO employee(emp_id,emp_name,emp_email,center_id,location)
         VALUES ('$emp_id','$emp_name','$email','$center_id','$location')";
@@ -15,8 +18,6 @@ if($mysqli->query($insert)){
 }else{
     echo "เพิ่มข้อมูลไม่สำเร็จ";
 }
-
-
 
 
 //บันทึกข้อมูลลงใน log
@@ -36,6 +37,7 @@ if($mysqli->query($insert)){
     unset($email);
     unset($center_id);
     unset($location);
+    unset($position_code);
     echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
     echo "<script>window.location='./addemp.php'</script>";
     exit(0);

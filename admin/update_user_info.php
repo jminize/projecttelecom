@@ -7,14 +7,16 @@ $emp_info=array(
     'emp_name'=>$_POST['emp_name'],
     'email'=>$_POST['email'],
     'center_id'=>$_POST['center_id'],
-    'location'=>$_POST['location']
+    'location'=>$_POST['location'],
+    'position_code'=>$_POST['position_name'].$_POST['position_num']
 );
 //update ข้อมูลพนักงาน
 $update=$mysqli->query("UPDATE employee
                         SET emp_name='".$emp_info['emp_name']."',
                             emp_email='".$emp_info['email']."',
                             center_id='".$emp_info['center_id']."',
-                            location='".$emp_info['location']."'
+                            location='".$emp_info['location']."',
+                            position_code='".$emp_info['position_code']."'
                         WHERE emp_id='".$emp_info['emp_id']."';
                         ");
 //บันทึกข้อมูลลงใน log

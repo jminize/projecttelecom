@@ -26,7 +26,7 @@
               <div class="collapse in" id="nav_manage_emp" aria-expended="true">
                 <ul class="nav">
                   <li class="nav-item <?php echo $page=='addemp'?'active':NULL;?>">
-                    <a href="../user/addemp.php" class="nav-link">
+                    <a href="./addemp.php" class="nav-link">
                     <span class="sidebar-mini" style="font-weight:bold;"></span>
                       <i class="fa fa-arrow-right" aria-hidden="true"></i>
                       <span class="sidebar-normal">เพิ่มพนักงาน</span>

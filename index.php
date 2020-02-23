@@ -98,25 +98,28 @@ $page='index';
         </div>
         <br>
       <div class="row">
+            <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
-                  <p class="card-category">เบอร์โทรศัพท์พนักงาน</p>
-                  <h3 class="card-title"><?=$usedtel;?>/<?=$alltel;?>
+                  <p class="card-category">เบอร์โทรพนักงาน</p>
+                  <h3 class="card-title"><?=$usedtel;?>/<?=$alltel;?><br>
                     <small>เบอร์</small>
                   </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
                   <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;<a href="./search.php">ค้นหาเบอร์</a>
+                    &nbsp;&nbsp;<a href="./SearchTel.php">ค้นหาเบอร์</a>
                   </div>
                 </div>
               </div>
             </div>
+        <!-- end card -->
+        <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
@@ -124,7 +127,9 @@ $page='index';
                   <i class="fa fa-users" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">พนักงานทั้งหมด</p>
-                  <h3 class="card-title"><?=$allemp;?> คน</h3>
+                  <h3 class="card-title"><?=$allemp;?><br>
+                    <small>คน</small>
+                  </h3>  
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -134,6 +139,7 @@ $page='index';
                 </div>
               </div>
             </div>
+        <!-- end card -->
             
           </div>
       </div>

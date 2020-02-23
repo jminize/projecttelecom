@@ -42,25 +42,27 @@ include "./check_status_login.php";
     TOT
     </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="./assets/vendor/font-awesome/css/font-awesome.css">
   <!-- CSS Files -->
   <link href="assets/css/material-dashboard.css" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="assets/demo/demo.css" rel="stylesheet" />
   <!--select bootstrap-->
-  
   <link rel="stylesheet" href="./assets/css/bootstrap-select.css">
 
+  <!-- custom style -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <?php
-        include 'header.php';
-    ?>
+  <?php
+      if($_SESSION['user_status']=='3'){
+        include '../user/header.php';
+      }else{
+        include "header.php";
+      }
+      ?>
     <div class="main-panel">
       <!-- Navbar -->
       <?php
@@ -108,10 +110,10 @@ include "./check_status_login.php";
                               <div class="row">
                                   <div class="col-12">
                                       <div class="form-group">
-                                        <span class="title-emp">สังกัด<span class="star">*</span></span>
+                                        <span class="title-emp">รหัสตำแหน่ง<span class="star">*</span></span>
                                           <select class=" form-control selectpicker " data-toggle="select" data-live-search="true" data-placeholder="Select a state" 
-                                          name="center_id" id="center_id"
-                                          onchange="swicstatus(this.value);">
+                                          name="position_name" id="position_name"
+                                          onchange="swicstatus(this.value,'select-position_name-error');">
                                             <option value="">----------เลือกสังกัด----------</option>
                                             <?php
                                             foreach($center as $value){
@@ -121,7 +123,35 @@ include "./check_status_login.php";
                                             }
                                             ?>
                                         </select>
-                                        <label id="select-error" style="display:none;">ระบุสังกัด</label>
+                                        <label id="select-position_name-error" style="display:none;">ระบุรหัสตำแหน่ง</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-12">
+                                      <div class="form-group">
+                                        <span class="title-emp">เลขตำแหน่ง<span class="star">*</span></span>
+                                          <input type="text" class="form-control" name="position_num"/>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-12">
+                                      <div class="form-group">
+                                        <span class="title-emp">สังกัด<span class="star">*</span></span>
+                                          <select class=" form-control selectpicker " data-toggle="select" data-live-search="true" data-placeholder="Select a state" 
+                                          name="center_id" id="center_id"
+                                          onchange="swicstatus(this.value,'select-center_id-error');">
+                                            <option value="">----------เลือกสังกัด----------</option>
+                                            <?php
+                                            foreach($center as $value){
+                                            ?>
+                                            <option value="<?=$value['center_id'];?>"><?=$value['center_name'];?>&nbsp;(<?=$value['div_code'];?>)</option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                        <label id="select-center_id-error" style="display:none;">ระบุสังกัด</label>
                                       </div>
                                   </div>
                               </div>
@@ -173,6 +203,13 @@ include "./check_status_login.php";
                                   <div class="row">
                                       <div class="col-12">
                                         <span class="emp-info">E-mail : <label id="email" class="emp-info"></label></span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="row">
+                                      <div class="col-12">
+                                        <span class="emp-info">รหัสตำแหน่ง : <label id="position_code" class="emp-info"></label></span>
                                       </div>
                                   </div>
                               </div>
@@ -270,6 +307,10 @@ include "./check_status_login.php";
             },
             location:{
                 required : true
+            },
+            position_num:{
+              required : true,
+              number: true
             }
         },
         messages: {
@@ -286,6 +327,10 @@ include "./check_status_login.php";
             },
             location:{
                 required : "กรอกสถานที่นั่ง"
+            },
+            position_num:{
+                required : "เลขตำแหน่ง",
+                number :"กรอกเฉพาะตัวเลข"
             }
             
         }
@@ -310,30 +355,38 @@ include "./check_status_login.php";
 
       $("#nextblock1").click(function() {
           let checkcenter_id=$("select[name='center_id']").val();
-         
-            if ($("#block1 input , #block1 select").valid() && checkcenter_id!="") {
+          let position_name=$("select[name='position_name']").val();
+            if ($("#block1 input , #block1 select").valid() && checkcenter_id!="" && position_name!="") {
                 let emp_id=$("input[name='emp_id']").val();
                 let emp_name=$("input[name='emp_name']").val();
                 let email=$("input[name='email']").val();
+                let position_name=$("#position_name option:selected").text();
+                let position_num=$("input[name='position_num']").val();
                 let center_id=$("#center_id option:selected").text();
                 let location=$("input[name='location']").val();
                 $("#block1").hide();
                 $("#block2").show();
                 $("#emp_id").text(emp_id);
                 $("#emp_name").text(emp_name);
+                $("#position_code").text(position_name+position_num);
                 $("#email").text(email);
                 $(".center_id").text(center_id);
                 $("#location").text(location);
         }else{
-            $("#select-error").show();
+          if(position_name==""){
+            $("#select-position_name-error").show();
+          }
+          if(checkcenter_id==""){
+            $("#select-center_id-error").show();
+          }
         }
       });
 
-      swicstatus=(value)=>{
+      swicstatus=(value,error_id)=>{
         if(value==""){
-            $("#select-error").show();
+            $("#"+error_id).show();
         }else{
-            $("#select-error").hide();
+            $("#"+error_id).hide();
         }
       }
   
