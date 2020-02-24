@@ -25,8 +25,8 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
       $row=$sql->fetch_assoc();
       array_push($center,$row);
     }
-    $position_name=substr($position_code,0,7);
-    $position_num=substr($position_code,7);
+    // $position_name=substr($position_code,0,7);
+    // $position_num=substr($position_code,7);
     
 ?>
 
@@ -90,7 +90,7 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
             <div class="col-9">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">เพิ่มข้อมูลพนักงานใหม่</h4>
+                  <h4 class="card-title">แก้ไขข้อมูลพนักงาน</h4>
                 </div>
                 <div class="card-body">
                   <!--=========================== Block 1 ==================================-->
@@ -126,26 +126,7 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
                                   <div class="col-12">
                                       <div class="form-group">
                                         <span class="title-emp">รหัสตำแหน่ง<span class="star">*</span></span>
-                                          <select class=" form-control selectpicker " data-toggle="select" data-live-search="true" data-placeholder="Select a state" 
-                                          name="position_name" id="position_name"
-                                          >
-                                            <option value="">----------เลือกรหัสตำแหน่ง----------</option>
-                                            <?php
-                                            foreach($center as $value){
-                                            ?>
-                                            <option value="<?=$value['center_id'];?>" <?php echo ($emp_info[0]['center_id']==$value['center_id'])?'selected':NULL;?> ><?=$value['center_name'];?>&nbsp;(<?=$value['div_code'];?>)</option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-12">
-                                      <div class="form-group">
-                                        <span class="title-emp">เลขตำแหน่ง<span class="star">*</span></span>
-                                          <input type="text" class="form-control" name="position_num" value="<?=$position_num;?>"/>
+                                          <input type="text" class="form-control" name="position_code" value="<?=$position_code;?>"/>
                                       </div>
                                   </div>
                               </div>
@@ -262,7 +243,7 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
         </div>
       </div>
       <?php
-      include './footer.php';
+      include '../footer.php';
       ?>
     </div>
   </div>
@@ -273,7 +254,7 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
         <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -316,6 +297,9 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
             },
             location:{
                 required : true
+            },
+            position_code:{
+                required: true
             }
         },
         messages: {
@@ -328,6 +312,9 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
             },
             location:{
                 required : "กรอกสถานที่นั่ง"
+            },
+            position_code:{
+                required: "กรอกรหัสตำแหน่ง"
             }
             
         }
@@ -355,15 +342,14 @@ $sql=$mysqli->query("SELECT center_id,div_code,center_name
                 let emp_id=$("input[name='emp_id']").val();
                 let emp_name=$("input[name='emp_name']").val();
                 let email=$("input[name='email']").val();
-                let position_name=$("#position_name option:selected").text();
-                let position_num=$("input[name='position_num']").val();
+                let position_code=$("input[name='position_code']").val();
                 let center_id=$("#center_id option:selected").text();
                 let location=$("input[name='location']").val();
                 $("#block1").hide();
                 $("#block2").show();
                 $("#emp_id").text(emp_id);
                 $("#emp_name").text(emp_name);
-                $("#position_code").text(position_name+position_num);
+                $("#position_code").text(position_code);
                 $("#email").text(email);
                 $(".center_id").text(center_id);
                 $("#location").text(location);

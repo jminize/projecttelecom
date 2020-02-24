@@ -6,6 +6,7 @@ $type=$_POST['type'];
 <div class="form-group">
     <div class="row justify-content-center">
       <h3>สรุปการย้ายเบอร์</h3>
+      <?=$_SESSION['route'];?>
     </div>
 </div>
 <?php

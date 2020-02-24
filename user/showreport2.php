@@ -131,7 +131,8 @@ for($i=0;$i<$result;$i++){
                                                       INNER JOIN employee
                                                       ON report.emp_id = employee.emp_id 
                                                       WHERE report.re_date BETWEEN '$Start_date' AND '$End_date' AND (report.re_type= '$type') 
-                                                      ORDER BY re_date ASC");
+                                                      ORDER BY re_date DESC
+                                                      ");
                                 }
                                  while($row = $sql->fetch_assoc())
                                 {
@@ -158,7 +159,12 @@ for($i=0;$i<$result;$i++){
           </div>
         </div>
       </div>
-    </main>
+      </div>
+      <?php
+          include '../footer.php';
+          ?>
+    </div>
+  </div>
     <!--<div class="testshow"></div>-->
 
  <!--======================================= Modal logout ===============================================-->
@@ -167,7 +173,7 @@ for($i=0;$i<$result;$i++){
         <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -218,7 +224,7 @@ for($i=0;$i<$result;$i++){
       //-------------End validate--------------
       $(document).ready(function() {
         $('#search').DataTable({
-          "bSort"
+          "bSort":false
         });
       } );
     </script>

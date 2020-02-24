@@ -46,6 +46,8 @@ while($row=$sql->fetch_assoc()){
     $allemp=$row['allemp'];
 }
 //เบอร์พนักงานที่ใช้งาน
+
+$total=$usedtel_emp+$usedtel_hotel+$usedtel_private;
 $page='indexadmin';
 ?>
 <!DOCTYPE html>
@@ -110,45 +112,51 @@ $page='indexadmin';
               </div>
             </div>
             <br>
-            <div class="row">
-        <!-- card -->
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  </div>
-                  <p class="card-category">เบอร์โทรพนักงาน</p>
-                  <h3 class="card-title"><?=$usedtel_emp;?>/<?=$alltel;?><br>
-                    <small>เบอร์</small>
-                  </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;<a href="./SearchTel.php">ค้นหาเบอร์</a> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-        <!-- end card -->
-        <!-- card -->
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="row justify-content-center">
+            <!-- card -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-users" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">พนักงานทั้งหมด</p>
-                  <h3 class="card-title"><?=$allemp;?><br>
+                  <h3 class="card-title"><?=$allemp;?>
                     <small>คน</small>
                   </h3>  
                 </div>
-                <div class="card-footer">
-                  <div class="stats">
-                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;<a href="../structure.php">ค้นหาพนักงาน</a> -->
+              </div>
+            </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
+                  <p class="card-category">เบอร์โทรศัพท์ที่ใช้งานอยู่ทั้งหมด</p>
+                  <h3 class="card-title"><?=$total;?>/<?=$alltel;?>
+                    <small>เบอร์</small>
+                  </h3>
+                </div>
+                
+              </div>
+            </div>
+        <!-- end card -->
+      </div>
+      <div class="row justify-content-center">
+        <!-- card -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  </div>
+                  <p class="card-category">เบอร์โทรพนักงาน</p>
+                  <h3 class="card-title"><?=$usedtel_emp;?>
+                    <small>เบอร์</small>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -161,15 +169,9 @@ $page='indexadmin';
                   <i class="fa fa-building" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">เบอร์โทรหอพัก</p>
-                  <h3 class="card-title"><?=$usedtel_hotel;?>/<?=$alltel;?><br>
+                  <h3 class="card-title"><?=$usedtel_hotel;?>
                     <small>เบอร์</small>
                   </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;<a href="./SearchTel_hotel.php">ค้นหาเบอร์</a> -->
-                  </div>
                 </div>
               </div>
             </div>
@@ -182,15 +184,9 @@ $page='indexadmin';
                   <i class="fa fa-university" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">เบอร์ประจำชั้น</p>
-                  <h3 class="card-title"><?=$usedtel_private;?>/<?=$alltel;?><br>
+                  <h3 class="card-title"><?=$usedtel_private;?>
                     <small>เบอร์</small>
                   </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                  <!-- <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;<a href="./SearchTel_private.php">ค้นหาเบอร์</a> -->
-                  </div>
                 </div>
               </div>
             </div>
@@ -201,7 +197,7 @@ $page='indexadmin';
         </div>
         <!--footer-->
         <?php
-        include "footer.php"
+        include '../footer.php';
         ?>
         <!--endfooter-->
     
@@ -214,7 +210,7 @@ $page='indexadmin';
         <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

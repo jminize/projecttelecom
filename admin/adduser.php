@@ -65,7 +65,7 @@ $page='adduser';
            <div class="col-7">
             <div class="card">
              <div class="card-header card-header-primary">
-               <h4 class="card-title">เพิ่มผู้ใช้งาน</h4>
+               <h4 class="card-title">เพิ่มสมาชิก</h4>
               </div>
                 <div class="card-body">
                 <div class="row justify-content-center">
@@ -164,7 +164,7 @@ $page='adduser';
         </div>
         </div>
         <?php
-        include './footer.php';
+        include '../footer.php';
         ?>
       </div>
     </div>
@@ -176,7 +176,7 @@ $page='adduser';
         <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

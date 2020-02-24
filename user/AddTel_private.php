@@ -113,7 +113,7 @@ $page='addtel_private';
         </div>
       </div>
       <?php
-      include './footer.php';
+      include '../footer.php';
       ?>
     </div>
   </div>

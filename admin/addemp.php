@@ -111,27 +111,7 @@ include "./check_status_login.php";
                                   <div class="col-12">
                                       <div class="form-group">
                                         <span class="title-emp">รหัสตำแหน่ง<span class="star">*</span></span>
-                                          <select class=" form-control selectpicker " data-toggle="select" data-live-search="true" data-placeholder="Select a state" 
-                                          name="position_name" id="position_name"
-                                          onchange="swicstatus(this.value,'select-position_name-error');">
-                                            <option value="">----------เลือกสังกัด----------</option>
-                                            <?php
-                                            foreach($center as $value){
-                                            ?>
-                                            <option value="<?=$value['center_id'];?>"><?=$value['center_name'];?>&nbsp;(<?=$value['div_code'];?>)</option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                        <label id="select-position_name-error" style="display:none;">ระบุรหัสตำแหน่ง</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-12">
-                                      <div class="form-group">
-                                        <span class="title-emp">เลขตำแหน่ง<span class="star">*</span></span>
-                                          <input type="text" class="form-control" name="position_num"/>
+                                          <input type="text" class="form-control" name="position_code"/>
                                       </div>
                                   </div>
                               </div>
@@ -248,7 +228,7 @@ include "./check_status_login.php";
         </div>
       </div>
       <?php
-      include './footer.php';
+      include '../footer.php';
       ?>
     </div>
   </div>
@@ -258,7 +238,7 @@ include "./check_status_login.php";
         <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -308,9 +288,8 @@ include "./check_status_login.php";
             location:{
                 required : true
             },
-            position_num:{
-              required : true,
-              number: true
+            position_code:{
+              required : true
             }
         },
         messages: {
@@ -328,9 +307,8 @@ include "./check_status_login.php";
             location:{
                 required : "กรอกสถานที่นั่ง"
             },
-            position_num:{
-                required : "เลขตำแหน่ง",
-                number :"กรอกเฉพาะตัวเลข"
+            position_code:{
+              required : "กรอกรหัสตำแหน่ง",
             }
             
         }
@@ -355,27 +333,22 @@ include "./check_status_login.php";
 
       $("#nextblock1").click(function() {
           let checkcenter_id=$("select[name='center_id']").val();
-          let position_name=$("select[name='position_name']").val();
-            if ($("#block1 input , #block1 select").valid() && checkcenter_id!="" && position_name!="") {
+            if ($("#block1 input , #block1 select").valid() && checkcenter_id!="") {
                 let emp_id=$("input[name='emp_id']").val();
                 let emp_name=$("input[name='emp_name']").val();
                 let email=$("input[name='email']").val();
-                let position_name=$("#position_name option:selected").text();
-                let position_num=$("input[name='position_num']").val();
+                let position_code=$("input[name='position_code']").val();
                 let center_id=$("#center_id option:selected").text();
                 let location=$("input[name='location']").val();
                 $("#block1").hide();
                 $("#block2").show();
                 $("#emp_id").text(emp_id);
                 $("#emp_name").text(emp_name);
-                $("#position_code").text(position_name+position_num);
+                $("#position_code").text(position_code);
                 $("#email").text(email);
                 $(".center_id").text(center_id);
                 $("#location").text(location);
         }else{
-          if(position_name==""){
-            $("#select-position_name-error").show();
-          }
           if(checkcenter_id==""){
             $("#select-center_id-error").show();
           }

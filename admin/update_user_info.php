@@ -8,7 +8,7 @@ $emp_info=array(
     'email'=>$_POST['email'],
     'center_id'=>$_POST['center_id'],
     'location'=>$_POST['location'],
-    'position_code'=>$_POST['position_name'].$_POST['position_num']
+    'position_code'=>$_POST['position_code']
 );
 //update ข้อมูลพนักงาน
 $update=$mysqli->query("UPDATE employee

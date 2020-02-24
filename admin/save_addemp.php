@@ -7,12 +7,12 @@ $emp_name=$_POST['emp_name'];
 $email=$_POST['email'];
 $center_id=$_POST['center_id'];
 $location=$_POST['location'];
-$position_code=$_POST['position_name'].$_POST['position_num'];
+$position_code=$_POST['position_code'];
 
 
 //บันทึกข้อมูลลงใน employee
-$insert="INSERT INTO employee(emp_id,emp_name,emp_email,center_id,location)
-        VALUES ('$emp_id','$emp_name','$email','$center_id','$location')";
+$insert="INSERT INTO employee(emp_id,emp_name,emp_email,position_code,center_id,location)
+        VALUES ('$emp_id','$emp_name','$email','$position_code','$center_id','$location')";
 if($mysqli->query($insert)){
 
 }else{

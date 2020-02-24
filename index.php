@@ -12,6 +12,23 @@ while($row=$sql->fetch_assoc()){
     $usedtel=$row['usedtel'];
 }
 
+//เบอร์หอพักที่ใช้งาน
+$sql=$mysqli->query("SELECT count(DISTINCT tel) as usedtel
+                    FROM hotel_tel
+                    ");
+$result=$sql->num_rows;
+while($row=$sql->fetch_assoc()){
+    $usedtel_hotel=$row['usedtel'];
+}
+//เบอร์ประจำชั้นที่ใช้งาน
+$sql=$mysqli->query("SELECT count(DISTINCT tel) as usedtel
+                    FROM private_tel
+                    ");
+$result=$sql->num_rows;
+while($row=$sql->fetch_assoc()){
+    $usedtel_private=$row['usedtel'];
+}
+
 //เบอร์ทั้งหมด
 $sql=$mysqli->query("SELECT count(DISTINCT tel) as alltel
                     FROM terminal
@@ -29,8 +46,9 @@ $result=$sql->num_rows;
 while($row=$sql->fetch_assoc()){
     $allemp=$row['allemp'];
 }
-?>
-<?php
+
+$total=$usedtel+$usedtel_hotel+$usedtel_private;
+
 $page='index';
 ?>
 <!DOCTYPE html>
@@ -54,11 +72,10 @@ $page='index';
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="assets/demo/demo.css" rel="stylesheet" />
     <!--style custom-->
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css/>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
     <!-- pagination data table -->
-    <link rel="stylesheet" type="text/css"
-        href="./assets/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/bootstrap.css" />
 
 </head>
 
@@ -82,22 +99,42 @@ $page='index';
         </div>
         <br>
       <div class="row">
-            <!-- card -->
-            <div class="col-lg-3 col-md-6 col-sm-6">
+        <!-- card -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
+                  <p class="card-category">เบอร์โทรศัพท์ที่ใช้งานอยู่ทั้งหมด</p>
+                  <h3 class="card-title"><?=$total;?>/<?=$alltel;?>
+                    <small>เบอร์</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    &nbsp;&nbsp;
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- end card -->
+            <!-- card -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  </div>
                   <p class="card-category">เบอร์โทรพนักงาน</p>
-                  <h3 class="card-title"><?=$usedtel;?>/<?=$alltel;?><br>
+                  <h3 class="card-title"><?=$usedtel;?>
                     <small>เบอร์</small>
                   </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
                   <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;<a href="./SearchTel.php">ค้นหาเบอร์</a>
+                    &nbsp;&nbsp;<a href="./search.php">ค้นหาเบอร์</a>
                   </div>
                 </div>
               </div>
@@ -111,7 +148,7 @@ $page='index';
                   <i class="fa fa-users" aria-hidden="true"></i>
                   </div>
                   <p class="card-category">พนักงานทั้งหมด</p>
-                  <h3 class="card-title"><?=$allemp;?><br>
+                  <h3 class="card-title"><?=$allemp;?>
                     <small>คน</small>
                   </h3>  
                 </div>

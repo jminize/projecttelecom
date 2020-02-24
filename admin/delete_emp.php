@@ -130,9 +130,10 @@ include "./check_status_login.php";
                                           <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a></td>
                                         <td><button type="button"
-                                          onclick="deletetel('<?php echo $row['emp_id'];?>');" 
+                                          onclick="deleteempยืนยันการออกจากระบบ
+('<?php echo $row['emp_id'];?>');" 
                                           data-toggle="modal" 
-                                          data-target="#deletetel"
+                                          data-target="#deleteemp"
                                           class="btn btn-danger">ลบ</button>
                                   </td>
                                     </tr>
@@ -152,17 +153,17 @@ include "./check_status_login.php";
           </div>
         </div>
         <?php
-        include './footer.php';
+        include '../footer.php';
         ?>
     </div>
   </div>
 
   <!--====================================modal delete======================================================-->
-<div class="modal fade" id="deletetel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteemp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">ลบเบอร์</h5>
+        <h5 class="modal-title">ลบพนักงาน</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -206,7 +207,7 @@ include "./check_status_login.php";
         <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -249,7 +250,7 @@ include "./check_status_login.php";
             $('#emp_all').DataTable();
         } );  
 
-        deletetel=(emp_id)=>{
+        deleteemp=(emp_id)=>{
         $.ajax({
           type: "POST",
           url: "ajaxconclusion_delete.php",

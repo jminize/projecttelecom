@@ -292,7 +292,7 @@ for($i=0;$i<$result;$i++){
       </div>
       <!-- footer -->
       <?php
-        include './footer.php';
+        include '../footer.php';
       ?>
       <!-- footer -->
     </div>
@@ -337,7 +337,7 @@ for($i=0;$i<$result;$i++){
         <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
