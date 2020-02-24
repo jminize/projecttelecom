@@ -89,7 +89,7 @@ include './check_status_login.php';
                                     <th>หอพัก</th>
                                     <th>ห้อง</th>
                                     <th>เบอร์โทร</th>
-                                    <th>เปลี่ยนเบอร์</th>
+                                    <th>เส้นทาง</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -112,7 +112,7 @@ include './check_status_login.php';
                                   if($row["type_phone"]!='ipphone'){
                                   ?>
                                     <a href="repair_hotel.php?hotel_id=<?php echo $row["hotel_id"];?>&hotel_no=<?=$row['hotel_no']?>&tel=<?php echo $row["tel"]; ?>&typephone=<?=$row["type_phone"];?>&route=<?=$row["route"];?>&type_change=hotel" 
-                                      class="btn btn-warning">เปลี่ยน</a>
+                                      class="btn btn-warning">คลิก</a>
                                   <?php
                                   }
                                   ?>

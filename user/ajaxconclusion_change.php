@@ -172,7 +172,6 @@ array_unshift($slotpri,$slot);
                     ?>
                     <div class="col-4">
                         <span class="label_slot"><?=$memo;?></span>
-                       <?=$memo;?>
                     </div>
                     <?php
                         }

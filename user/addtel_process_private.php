@@ -165,44 +165,9 @@ for($i=0;$i<$result;$i++){
           </div>
         </div>
       </div>
-
-
-      
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  ระบบเครือข่าย TOT
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">ระบบเครือข่าย TOT </a> for a better web.
-          </div>
-        </div>
-      </footer>
+    <?php
+    include '../footer.php';
+    ?>
     </div>
   </div>
 
@@ -232,6 +197,28 @@ for($i=0;$i<$result;$i++){
   </div>
 </div>
 <!--modal location detail-->
+<!--======================================= Modal logout ===============================================-->
+    
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">ยืนยันการออกจากระบบ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                     <div class="modal-body">
+                         คลิกปุ่ม Logout เพื่อออกจากระบบ
+                </div>
+                     <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>  Close</button>
+                     <a class="btn btn-facebook" href="logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+                </div>
+             </div>
+          </div>
+        </div>                  
+        <!--=================================== End Modal logout =============================================-->
   
   
   <!--   Core JS Files   -->
@@ -286,22 +273,38 @@ $(document).ready(function() {
         });
     }
 
-      //เพิ่มเบอร์ip phone ไปหน้าสรุป
+      //เพิ่มเบอร์ip phone ไปหน้าสรุป/
       addiptel=()=>{
         let ip_tel=$("#ip_tel").val();
-        $.ajax({
-          type: "POST",
-          url: "ajaxconclusion_add.php",
-          data: "tel="+ip_tel+
-                "&type=private",
-          success: function(result) {
-            $("#showconclusion").html(result);
-            $("#block1").hide();
-            $("#block_con").show();
-          }
-        });
+        if(ip_tel==''){
+          alert('กรุณากรอกหมายเลขโทรศัพท์');
+          $("#ip_tel").focus();
+        }else{
+          $.ajax({
+            type: "POST",
+            url: "checkipphone.php",
+            data: "tel="+ip_tel,
+            success: function(result) {
+              if(result=='true'){
+                alert('เบอร์โทรศัพท์ซ้ำ');
+              }else{
+                $.ajax({
+                  type: "POST",
+                  url: "ajaxconclusion_add.php",
+                  data: "tel="+ip_tel+
+                        "&type=private",
+                  success: function(result) {
+                    $("#showconclusion").html(result);
+                    $("#block1").hide();
+                    $("#block_con").show();
+                  }
+                });
+              } 
+            }
+          });
+        }
       }
-
+      
       //ไปยังหน้า map
       maptelecom=()=>{
         $.ajax({

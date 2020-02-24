@@ -1,5 +1,6 @@
 <?php
 include '../connect.php';
+session_start();
 $location_num=$_POST['location_num'];
 $b_eq_id=$_POST['b_eq_id'];
 $eq_id=$_POST['eq_id'];

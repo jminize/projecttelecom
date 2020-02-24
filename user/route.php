@@ -741,7 +741,7 @@ include_once 'modal.php';
       };
       
       ipphone=() => {
-		if(confirm('คุณต้องการบันทึกข้อมูลใหช้หรือไม่')==true)
+		if(confirm('คุณต้องการบันทึกข้อมูลใช่หรือไม่')==true)
 		{
         $.ajax({
           type: "POST",
@@ -758,7 +758,7 @@ include_once 'modal.php';
 
 
       updatnew = (page, fromid,from) => {
-		  if(confirm('คุณต้องการบันทึกข้อมูลใหช้หรือไม่')==true)
+		  if(confirm('คุณต้องการบันทึกข้อมูลใช่หรือไม่')==true)
 		{ 
         $.ajax({
           type: "POST",
@@ -817,7 +817,7 @@ include_once 'modal.php';
                 });   
                 }
                 test2=()=>{
-					if(confirm('คุณต้องการบันทึกข้อมูลใหช้หรือไม่')==true)
+					if(confirm('คุณต้องการบันทึกข้อมูลใช่หรือไม่')==true)
 		             {
                     $.ajax({
                         type: "POST",
