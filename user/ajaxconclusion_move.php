@@ -134,8 +134,65 @@ foreach($location as $key=>$value){
                 </div>
             </div>
         </div>
+        
         <?php
 }
+?>
+<hr>
+  <div class="row justify-content-center">
+      <h3>การดำเนินการ</h3>
+  </div>
+  <div class="row">
+    <div class="col-4 head_title">
+      สถานที่
+    </div>
+    <div class="col-4 head_title">
+    Primary Terminal
+    </div>
+    <div class="col-4 head_title">
+    Secondary Terminal
+    </div>
+  </div>
+  <?php
+  $check=array_shift($_SESSION['check']);
+  if($check>0){
+    $check=$check-1;
+  }else{
+    $check=0;
+  }
+  for($i=$check;$i<count($location);$i++){
+    ?>
+    <div class="form-group">
+            <div class="row" style="height:60%;">
+                <div class="col-4 location_name"> 
+                  <?=$location[$i];?>
+                </div>
+                <div class="col-4" >
+                <?php 
+                    if(isset($selectlabelpri[$i])){
+                        ?>
+                        <span class="label_slot"><?=$selectlabelpri[$i];?>/slot :<?=$selectslotpri[$i];?></span>
+                        <?php
+                    }
+                ?>
+                </div>
+                <div class="col-4">
+                <?php 
+                    if(isset($selectlabelsec[$i])){
+                        ?>
+                        <span class="label_slot"><?=$selectlabelsec[$i];?>/slot :<?=$selectslotsec[$i];?></span>
+                        <?php
+                    }else{
+                      ?>
+                      <span class="label_slot"><?=$memo;?></span>
+                      <?php
+                    }
+                ?>
+                </div>
+            </div>
+    </div>
+    <?php
+  }
 ?>
 <div class="form-group">
     <div class="row justify-content-center">

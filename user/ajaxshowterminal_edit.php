@@ -2,7 +2,7 @@
 include_once '../connect.php';
 $t_id=$_POST["t_id"];
 if($t_id!=""){
-$sql=$mysqli->query("SELECT slot , status , tel , label
+$sql=$mysqli->query("SELECT slot , status , tel , label,memo
                     FROM terminal
                     WHERE t_id='$t_id'");
 ?>
@@ -38,12 +38,12 @@ $sql=$mysqli->query("SELECT slot , status , tel , label
 <div class="row justify-content-center">
     <div class="col-12">
         <?php
-        if($t_id>="pt001" && $t_id<="pt006"){
+        //if($t_id>="pt001" && $t_id<="pt006"){
             ?>
-            <h3 style="font-size:16px; text-align:center;color:red;">ไม่สามารถแก้ไข E1-E6 ได้</h3>
+            <!-- <h3 style="font-size:16px; text-align:center;color:red;">ไม่สามารถแก้ไข E1-E6 ได้</h3> -->
             <?php
-        }
-        else{
+        //}
+        //else{
         ?>
         <div class="table-responsive">
             <table class="align-items-center">
@@ -63,15 +63,16 @@ $sql=$mysqli->query("SELECT slot , status , tel , label
                                 <label for="check<?=$row['slot'];?>" style="display:block;width:auto;height:50px;">
                                 <?php 
                                                                     if($row['status']=='available'){
-                                                                        ?><br><?=$row['slot'];?><br><?=$row['tel'];?>
+                                                                        ?><?=$row['slot'];?><br><?=$row['tel'];?><br><?=$row['memo'];?>
                                                                         <?php 
                                                                         }else{ 
                                                                             echo $row['slot'].'<br>';
                                                                             if($row['tel']=='unavailable'){
                                                                                 echo 'ไม่ได้ใช้งาน';
                                                                             }else{
-                                                                                echo $row['tel'];
+                                                                                echo $row['tel'].'<br>';
                                                                             }
+                                                                            echo $row['memo'];
                                                                         }?>
                                 </label>
                                 </td>
@@ -89,7 +90,7 @@ $sql=$mysqli->query("SELECT slot , status , tel , label
             </table>
         </div>
         <?php
-        }
+        //}
         ?>
     </div>
 </div>

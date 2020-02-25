@@ -2,10 +2,12 @@
 <?php
 session_start();
 if(isset($last_eq_id)){
+  $src_pic=substr($last_eq_id,0,8);
   //หารูป
   $sql=$mysqli->query("SELECT *
                     FROM kc_pic
-                    WHERE eq_id='$last_eq_id'");
+                    WHERE eq_id='$src_pic'");
+
   $direc=substr($last_eq_id,0,5);
   $floor=substr($last_eq_id,6,-4);
   $result=$sql->num_rows;

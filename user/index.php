@@ -108,7 +108,7 @@ $total=$usedtel_emp+$usedtel_hotel+$usedtel_private;
         <br>
         <div class="row justify-content-center">
             <!-- card -->
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
@@ -153,7 +153,7 @@ $total=$usedtel_emp+$usedtel_hotel+$usedtel_private;
         <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
+                <div class="card-header card-header-default card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   </div>
@@ -174,7 +174,7 @@ $total=$usedtel_emp+$usedtel_hotel+$usedtel_private;
         <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
+                <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-building" aria-hidden="true"></i>
                   </div>
@@ -195,7 +195,7 @@ $total=$usedtel_emp+$usedtel_hotel+$usedtel_private;
         <!-- card -->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
+                <div class="card-header card-header-rose card-header-icon">
                   <div class="card-icon">
                   <i class="fa fa-university" aria-hidden="true"></i>
                   </div>

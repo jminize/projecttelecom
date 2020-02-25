@@ -14,6 +14,7 @@ $_SESSION['labelpri_old']=array();
 $_SESSION['slotpri_old']=array();
 $_SESSION['labelsec_old']=array();
 $_SESSION['slotsec_old']=array();
+$_SESSION['check']=$check;
 
 if(count($check)>0){
     foreach($check as $key=>$value){

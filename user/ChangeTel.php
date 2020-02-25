@@ -106,7 +106,7 @@ include "./check_status_login.php";
                                                     ON employee.center_id=center.center_id
                                                     LEFT JOIN route_tel
                                                     ON emp_tel.route=route_tel.route
-                                                    WHERE emp_tel.type_phone='ipphone' or memo!=''
+                                                    WHERE emp_tel.type_phone='ipphone' or emp_tel.type_phone='tor' or memo!=''
                                                     ORDER BY center.center_id ASC
                                                     ");
                                 while($row = $sql->fetch_assoc())
