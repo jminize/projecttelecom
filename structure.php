@@ -116,7 +116,7 @@ $page='structure';
                                                   INNER JOIN center 
                                                   ON employee.center_id = center.center_id 
                                                   WHERE center.div_code LIKE '%ผสก%' 
-                                                  ORDER BY center.center_id DESC");
+                                                  ORDER BY center.center_id ASC");
                                 while($row = $sql->fetch_assoc())
                                 {
                                 ?>
@@ -149,7 +149,7 @@ $page='structure';
                                                     INNER JOIN center 
                                                     ON employee.center_id = center.center_id 
                                                     WHERE center.div_code LIKE '%จสก%' 
-                                                    ORDER BY center.center_id DESC
+                                                    ORDER BY center.center_id ASC
                                                     ");
                                 while($row = $sql->fetch_assoc())
                                 {
@@ -184,7 +184,7 @@ $page='structure';
                                                     INNER JOIN center 
                                                     ON employee.center_id = center.center_id 
                                                     WHERE center.div_code LIKE '%สสก%' 
-                                                    ORDER BY center.center_id DESC
+                                                    ORDER BY center.center_id ASC
                                                     ");
                                 while($row = $sql->fetch_assoc())
                                 {
@@ -219,7 +219,7 @@ $page='structure';
                                                     INNER JOIN center 
                                                     ON employee.center_id = center.center_id 
                                                     WHERE center.div_code LIKE '%ทสก%' 
-                                                    ORDER BY center.center_id DESC
+                                                    ORDER BY center.center_id ASC
                                                     ");
                                 while($row = $sql->fetch_assoc())
                                 {
@@ -255,7 +255,7 @@ $page='structure';
                                                     INNER JOIN center 
                                                     ON employee.center_id = center.center_id 
                                                     WHERE center.div_code LIKE '%บสก%' 
-                                                    ORDER BY center.center_id DESC");
+                                                    ORDER BY center.center_id ASC");
                                 while($row = $sql->fetch_assoc())
                                 {
                                 ?>

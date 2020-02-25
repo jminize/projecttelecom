@@ -139,8 +139,8 @@ if($_SESSION['check'][0]==0&&count($_SESSION['labelpri_die'])>1)
                         else{
                             ?>
                             <div class="col-4">
-                              <?=$_SESSION['mimo'];?>
-                              <input type="hidden" name="memo" value="<?=$_SESSION['mimo'];?>">
+                              <?=$_SESSION['memo'];?>
+                              <input type="hidden" name="memo" value="<?=$_SESSION['memo'];?>">
                             </div>
                             <?php
                           }
@@ -227,8 +227,8 @@ else{
                     else{
                         ?>
                       
-                          <?=$_SESSION['mimo'];?>
-                          <input type="hidden" name="memo" value="<?=$_SESSION['mimo'];?>">
+                          <?=$_SESSION['memo'];?>
+                          <input type="hidden" name="memo" value="<?=$_SESSION['memo'];?>">
                     
                         <?php
                       }

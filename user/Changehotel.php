@@ -121,8 +121,7 @@ include './check_status_login.php';
                                 <?php } ?>
                                 </tbody>
                               </table>
-                        <!-- <div class="modal fade" id="addbookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-                        <div class="modal-dialog" id="addbook_dialog_modal" role="document"></div> -->
+
                          </div>
                         </div>
                     </div>

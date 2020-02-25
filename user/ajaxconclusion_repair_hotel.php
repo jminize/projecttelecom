@@ -140,10 +140,8 @@ foreach($location as $key=>$value){
 
 <div class="form-group">
     <div class="row justify-content-center">
-        <div class="col-12">
            <button type="button" class="btn btn-facebook" onclick="backpage('5','<?php echo $page; ?>')">ย้อนกลับ</button>  
             <button type="button" class="btn btn-success" onclick="updatnew('5','chechblock1','showdata');">บันทึก</button>
-        </div>
     </div>
 </div>
 </form>

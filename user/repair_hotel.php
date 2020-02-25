@@ -290,7 +290,7 @@ while($row = $sql->fetch_assoc())
                     </div>
                     <div class="form-group">
                         <div class="row justify-content-center">
-                              <a href="./ChangeTel.php" class="btn btn-facebook">ย้อนกลับ</a>
+                              <a href="./Changehotel.php" class="btn btn-facebook">ย้อนกลับ</a>
   
                             
 
@@ -569,52 +569,16 @@ while($row = $sql->fetch_assoc())
           </div>
         </div>
       </div>
-      </div>
-
-
- <!--================================ modal ==================================-->
+      <?php
+      include '../footer.php';
+      ?>
+    </div>
+  </div>
+   <!--================================ modal ==================================-->
 <?php
 include_once 'modal.php';
 ?>
 <!--================================ modal ==================================-->   
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  ระบบเครือข่าย TOT
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">ระบบเครือข่าย TOT </a> for a better web.
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
-  
  <!--======================================= Modal logout ===============================================-->
     
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -692,7 +656,7 @@ include_once 'modal.php';
                 });   
                 }
          test2=()=>{
-		  if(confirm('คุณต้องการบันทึกข้อมูลใหช้หรือไม่')==true)
+		  if(confirm('คุณต้องการบันทึกข้อมูลใช่หรือไม่')==true)
 		  {
           $.ajax({
          type: "POST",
@@ -850,7 +814,7 @@ include_once 'modal.php';
       };
 
       updatnew = (page, fromid,from) => {
- 		  if(confirm('คุณต้องการบันทึกข้อมูลใหช้หรือไม่')==true)
+ 		  if(confirm('คุณต้องการบันทึกข้อมูลใช่หรือไม่')==true)
 		{
         $.ajax({
           type: "POST",
