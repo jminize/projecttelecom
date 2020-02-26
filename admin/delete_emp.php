@@ -130,8 +130,7 @@ include "./check_status_login.php";
                                           <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a></td>
                                         <td><button type="button"
-                                          onclick="deleteempยืนยันการออกจากระบบ
-('<?php echo $row['emp_id'];?>');" 
+                                          onclick="deleteemp('<?php echo $row['emp_id'];?>');" 
                                           data-toggle="modal" 
                                           data-target="#deleteemp"
                                           class="btn btn-danger">ลบ</button>

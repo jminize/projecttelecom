@@ -41,7 +41,6 @@ include "./check_status_login.php";
     </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="./assets/vendor/font-awesome/css/font-awesome.css">
   <!-- CSS Files -->
   <link href="assets/css/material-dashboard.css" rel="stylesheet" />
@@ -115,7 +114,7 @@ include "./check_status_login.php";
                                                       FROM employee
                                                       INNER JOIN center
                                                       ON employee.center_id=center.center_id
-                                                      ORDER BY emp_id ASC
+                                                      ORDER BY center.center_id ASC
                                                       ");
                                   while($row = $sql->fetch_assoc())
                                   {
@@ -224,7 +223,9 @@ include "./check_status_login.php";
 
     <script type="text/javascript">
     $(document).ready(function() {
-            $('#emp_all').DataTable();
+            $('#emp_all').DataTable({
+              "bSort":false
+            });
         } );  
 
     selfloor_hotel=(b_eq_id)=>{

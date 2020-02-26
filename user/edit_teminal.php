@@ -105,6 +105,15 @@ include "./check_status_login.php";
                     </div>
                     <div class="form-group">
                       <div class="row justify-content-center">
+                          <div class="col-7">
+                            <div class="row" style="color: red;">*Outside เลือกปลายทางเป็น CAB01</div>
+                            <div class="row" style="color: red;">*โรงยิม เลือกปลายทางเป็น อาคารหอพัก 35</div>
+                            <div class="row" style="color: red;"> *อาคาร 3 A เลือกปลายทางเป็น อาคาร 1</div>
+                          </div>
+                      </div>
+                  </div>
+                    <div class="form-group">
+                      <div class="row justify-content-center">
                         <button type="submit" class="btn btn-facebook">ถัดไป</button>
                       </div>
                     </div>
