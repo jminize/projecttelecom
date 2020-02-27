@@ -31,7 +31,6 @@ include "./check_status_login.php";
     </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="./assets/vendor/font-awesome/css/font-awesome.css">
   <!-- CSS Files -->
   <link href="assets/css/material-dashboard.css" rel="stylesheet" />
@@ -46,10 +45,9 @@ include "./check_status_login.php";
   <!--css datatables-->
   <link rel="stylesheet" href="./assets/css/datatables/datatables.css">
 
-   <!-- pagination data table -->
-   <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/bootstrap.css" />
-     
-    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/responsive.bootstrap4.min.css" />
+  <!-- pagination data table -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/responsive.bootstrap4.min.css" />
 </head>
 
 <body class="">
@@ -77,8 +75,7 @@ include "./check_status_login.php";
                 <form method="POST">
                 <div class="col-12">
                       <div class="form-group">
-                        <div class="row justify-content-center">
-                              <div class="row">
+                        
                               <table id="search" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                               <thead>
                                     <tr>
@@ -92,7 +89,6 @@ include "./check_status_login.php";
                                     <th>ย้าย</th>
                                     </tr>
                                 </thead>
-                               
                                 <tbody>
                                 <?php
                                 $sql=$mysqli->query("SELECT employee.emp_id,employee.emp_name,employee.emp_email,center.div_code,emp_tel.tel,emp_tel.type_phone,employee.location,emp_tel.route,route_tel.memo
@@ -132,12 +128,7 @@ include "./check_status_login.php";
                                   </tr>
                                 <?php } ?>
                                 </tbody>
-                               
                               </table>
-                            </div>
-                         
-                        </div>
-                   
                     </div>
                   </div>
                 </form>
@@ -146,12 +137,13 @@ include "./check_status_login.php";
           </div>
         </div>
       </div>
-      <?php
+      
+    </div>
+    <?php
       include '../footer.php';
       ?>
-    </div>
   </div>
-  
+  </div>
 
   <!--modal location detail-->
   <div class="modal fade" id="modal_location" tabindex="1" role="dialog" aria-labelledby="Modalterminal" aria-hidden="true">
