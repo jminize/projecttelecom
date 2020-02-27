@@ -40,7 +40,7 @@ $page='structure';
       
     <!-- pagination data table -->
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/dataTables.bootstrap4.min.css" />
+     
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/responsive.bootstrap4.min.css" />
     
     

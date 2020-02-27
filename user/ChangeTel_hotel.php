@@ -47,7 +47,7 @@ include "./check_status_login.php";
   <link rel="stylesheet" href="./assets/css/datatables/datatables.css">
   <!-- pagination data table -->
   <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/dataTables.bootstrap4.min.css" />
+     
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap/responsive.bootstrap4.min.css" />
 </head>
 
